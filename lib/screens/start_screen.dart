@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project1/assets/interval_progress_bar.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -102,20 +103,21 @@ class _StartScreenState extends State<StartScreen> {
 
   Widget _hydration() {
     return Column(children: [
-      _intervalBar(),
+      const IntervalProgressBar(),
+      //_intervalBar(),
       Text(
-        'Hidratacion',
+        'Hidratación',
         style: Theme.of(context).textTheme.bodySmall,
       )
     ]);
   }
 
-  Widget _intervalBar() {
-    return Text(
-      '1.0',
-      style: Theme.of(context).textTheme.headlineSmall,
-    );
-  }
+  //Widget _intervalBar() {
+  //return Text(
+  //'1.0',
+  //style: Theme.of(context).textTheme.headlineSmall,
+  //);
+  //}
 
   Widget _buttonReg() {
     return Center(
