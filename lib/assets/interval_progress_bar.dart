@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
 class IntervalProgressBar extends StatefulWidget {
-  const IntervalProgressBar({super.key});
+  final int value;
+  const IntervalProgressBar({key? key, required this.value}) : super(key: key);
 
   @override
   State<IntervalProgressBar> createState() => _IntervalProgressBarState();
 }
 
 class _IntervalProgressBarState extends State<IntervalProgressBar> {
+  List<Color> darkColors = [];
+
+  List<Color> darkColors = [];
   @override
   Widget build(BuildContext context) {
     return Row(

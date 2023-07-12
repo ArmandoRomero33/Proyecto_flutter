@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:water_counter_app/assets/interval_progress_bar.dart';
 
 class StartScreen extends StatefulWidget {
@@ -20,25 +21,47 @@ class _StartScreenState extends State<StartScreen> {
           'HI WATER',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
-        actions: [],
+        actions: [_hour()],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _totalMl(),
-          _indicators(),
-          _buttonReg(),
-        ],
+      body: SizedBox(
+        height: 115.0,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _totalMl(),
+            _verticalGap(),
+            _verticalGap(),
+            _indicators(),
+            _buttonReg(),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _hour() {
+    String formattedTime = DateFormat.Hm().format(DateTime.now());
+    return Text(
+      formattedTime,
+      style: Theme.of(context).textTheme.bodySmall,
+    );
+  }
+
+  Widget _verticalGap() {
+    return const SizedBox(
+      height: 5.5,
     );
   }
 
   Widget _totalMl() {
     return Column(
       children: [
-        Text(
-          '0 ML',
-          style: Theme.of(context).textTheme.headlineSmall,
+        SizedBox(
+          height: 25.0,
+          child: Text(
+            '0 ML',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
         ),
         Text(
           'Faltan 2000 ML',
@@ -130,10 +153,13 @@ class _StartScreenState extends State<StartScreen> {
   // }
 
   Widget _buttonReg() {
-    return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(width: 120, height: 30),
-        child: ElevatedButton(onPressed: () {}, child: const Text('Registrar')),
+    return SizedBox(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints.tightFor(width: 120, height: 30),
+          child:
+              ElevatedButton(onPressed: () {}, child: const Text('Registrar')),
+        ),
       ),
     );
   }

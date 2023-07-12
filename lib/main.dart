@@ -33,9 +33,14 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               )),
           elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo,
-                  foregroundColor: Colors.white)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color.fromARGB(255, 68, 155, 243),
+              foregroundColor: Colors.white,
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           useMaterial3: true,
         ),
         home: const StartScreen());
